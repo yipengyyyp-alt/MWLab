@@ -2,4 +2,4 @@ OBS	 = list.stars
 NORM	 = 2
 WINDOW	 = 4
 INTER	 = n
-PATH_SYN = /Users/alessio/DIDATTICA/LAB-OTTICO/2526/tutorial/models/list.syn  !!<--------change this into your directory
+PATH_SYN = 
