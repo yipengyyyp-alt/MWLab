@@ -1,0 +1,70 @@
+We divide the spectrum in a hard part [4-10] kev and a soft part [0.3-4]
+
+for the hard part, we begin with a baseline model of a powerlaw and the galactic obscutration , we find that the power law is so flat and we
+we know our source is a NLRG so it is obscured, and so we consider and intrinsic Nh and we do and F-test and we found that
+the new model has a significance of :
+76.24 33
+44.39 32
+
+the we plot and look at the residuals and find a significant emission around the fe- k line, we fit it and found an f test signifiant of blaa blaa.
+
+for the soft part we also begin with power law and galactiv Nh, then we fit again for the thermal emission and found an f test significance of bla blaa
+
+So we
+
+
+first f test btw baseline power law and intrinsic nh in hard spectrum: ftest 44.39 32 76.24 33
+ F statistic value = 22.9601 and probability 3.63747e-05
+//
+second ftest btw the previous model and an addition of fe - k line: ftest 31.58 30 44.39 32
+ F statistic value = 6.08455 and probability 0.00605208
+///
+Errors:
+intrinsic Nh: 
+Parameter   Confidence Range (2.706)
+     2      17.9865      42.6335    (-12.164,12.483)
+
+fe line energy:
+ Parameter   Confidence Range (2.706)
+     4      6.32351      6.48391    (-0.0796755,0.0807266)
+
+fe line normalization
+***Warning: Identical values of the parameter give different values of the statistic.
+Please check your result for the high end of the confidence range.
+     7   8.8301e-06  2.28716e-05    (-6.8198e-06,7.22171e-06)
+
+photo index of hard power law
+Parameter   Confidence Range (2.706)
+     8     0.676999      1.63043    (-0.477839,0.475592)
+
+normalization of power law
+Confidence Range (2.706)
+9  0.000200477   0.00194287    (-0.000429666,0.00131273)
+
+segma 
+ Confidence Range (2.706)
+5            0     0.220909    (-0.0843233,0.136586)
+
+///////////////////
+SOFT PART
+- add a new power law
+- add a thermal component
+- ftest btw new power law and thermal: 86.77 49 90 51
+ F statistic value = 0.912009 and probability 0.408426 ==> not statistically required
+
+
+error on normalization of new power law:
+Parameter   Confidence Range (2.706)
+    18  2.79406e-05  3.52967e-05    (-3.77252e-06,3.58366e-06)
+///
+error on kt from thermal:
+ Parameter   Confidence Range (2.706)
+***Warning: Parameter pegged at hard limit: 0.0808
+    11            0     0.254141    (-0.155603,0.0985376)
+//
+error  on normalisation from thermal:
+16  3.04259e-06  4.93652e-05    (-7.30019e-06,3.90224e-05)
+//
+
+
+
