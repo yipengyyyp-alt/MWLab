@@ -48,3 +48,23 @@ segma
 ///////////////////
 SOFT PART
 - add a new power law
+- add a thermal component
+- ftest btw new power law and thermal: 86.77 49 90 51
+ F statistic value = 0.912009 and probability 0.408426 ==> not statistically required
+
+
+error on normalization of new power law:
+Parameter   Confidence Range (2.706)
+    18  2.79406e-05  3.52967e-05    (-3.77252e-06,3.58366e-06)
+///
+error on kt from thermal:
+ Parameter   Confidence Range (2.706)
+***Warning: Parameter pegged at hard limit: 0.0808
+    11            0     0.254141    (-0.155603,0.0985376)
+//
+error  on normalisation from thermal:
+16  3.04259e-06  4.93652e-05    (-7.30019e-06,3.90224e-05)
+//
+
+
+
