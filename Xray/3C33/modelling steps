@@ -47,6 +47,18 @@ segma
 
 ///////////////////
 SOFT PART
+After finising with the hard part we now try to fit the soft part that is from 0.3-4 kev, for this
+we include the whole spectra. To fit this part, we assumed a power law, absorbed only by the 
+galactic column density. The galactic columna density was fixed to the known value and the photo 
+index of the new power law was set as the photo index of the old (hard) power law. However this 
+didnt give us a Good fit of the soft part cause the new fit give us a photoindex too low 1.1 far 
+from the best fit obtained for the power law of the hard part, so we decide to fixed a value of 
+1.7. Then the fit improve considerably. Then we apply metcal, with a temperatura from the paper,
+the shape of the residuals is better, but the f-test show us, it was not stadistically required.
+some lines that is hard to fit now, this two lines can be done with the other part of XMM which
+is ARGs (we work with PN). Soft part of 
+
+
 - add a new power law
 - add a thermal component
 - ftest btw new power law and thermal: 86.77 49 90 51
