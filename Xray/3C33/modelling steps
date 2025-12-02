@@ -117,5 +117,7 @@ Model Luminosity 1.3285e+44 ergs/s  (0.30000 - 10.000 keV rest frame)
 
 we should subtract luminosity with best fit from both luminosity with least and biggest normalization
 
-
-
+so the luminosity uncertainity is: 
+lower limit = 8.9135e+43 - 1.7214e+43 = 7.1921e43
+higher limit =  1.3285e+44 - 8.9135e+43 = 4.3715e43
+L = 8.9135e+43 (+4.3715e43, - 7.1921e43) 
