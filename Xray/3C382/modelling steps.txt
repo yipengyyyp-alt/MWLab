@@ -1,0 +1,5 @@
+we have flares so we excluded all counts above 0.07 count/sec.
+
+the change probability Q = 0.9202 ==> https://www.fourmilab.ch/rpkp/experiments/analysis/chiCalc.html 
+
+hence the sourec is variable at 1-0.9202 =0.0798 = 7% so our data shows that the source is statistically not variable 
