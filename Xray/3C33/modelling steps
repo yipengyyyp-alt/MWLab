@@ -43,7 +43,7 @@ Confidence Range (2.706)
 
 segma 
  Confidence Range (2.706)
-5            0     0.220909    (-0.0843233,0.136586)
+5            0     0.309063    (-0.0947793,0.214283)
 
 ///////////////////
 SOFT PART
@@ -78,5 +78,52 @@ error  on normalisation from thermal:
 16  3.04259e-06  4.93652e-05    (-7.30019e-06,3.90224e-05)
 //
 
+ EQUVILANT WIDTH of fe-k alpha line: 0.265377 keV 
+error on EQW: 0.163 - 0.396258 kev at 90% confidence
+///
+FLUX:
 
+-flux 0.3 10
+ Model Flux 0.00030435 photons (2.4622e-12 ergs/cm^2/s) range (0.30000 - 10.000 keV)
+-error on flux
+flux 0.3 10 err 100 90
+Parameter distribution is derived from fit covariance matrix.
+ Model Flux 0.00030435 photons (2.4622e-12 ergs/cm^2/s) range (0.30000 - 10.000 keV)
+     Error range 0.0002868 - 0.0003174    (2.328e-12 - 2.593e-12)  (90.00% confidence)
+////
+we put intrinsic and galactic Nh = 0 and compute luminosity:
+
+Luminosity
+lum 0.3 10 0.061
+Model Luminosity 8.9135e+43 ergs/s  (0.30000 - 10.000 keV rest frame)
+     (z = 0.0610 H0 =  70.0 q0 =  0.00 Lambda0 = 0.730)
+
+uncertanity on luminosity:
+-we change value for normalization to be the lowest range (new 9 0.000200477) and we do lumin 0.3 10 0.061
+lumin 0.3 10 0.061
+Warning: Either variance is not available through 
+         valid fit or chains, or no models are currently 
+         active. lumin error will not be calculated.
+Model Luminosity 1.7214e+43 ergs/s  (0.30000 - 10.000 keV rest frame)
+     (z = 0.0610 H0 =  70.0 q0 =  0.00 Lambda0 = 0.730)
+
+- we change value for normalization to be the largest range (new 9 0.00194287) and we do lumin 0.3 10 0.061
+lumin 0.3 10 0.061
+Warning: Either variance is not available through 
+         valid fit or chains, or no models are currently 
+         active. lumin error will not be calculated.
+Model Luminosity 1.3285e+44 ergs/s  (0.30000 - 10.000 keV rest frame)
+     (z = 0.0610 H0 =  70.0 q0 =  0.00 Lambda0 = 0.730)
+
+we should subtract luminosity with best fit from both luminosity with least and biggest normalization
+
+so the luminosity uncertainity is: 
+lower limit = 8.9135e+43 - 1.7214e+43 = 7.1921e43
+higher limit =  1.3285e+44 - 8.9135e+43 = 4.3715e43
+L = 8.9135e+43 (+4.3715e43, - 7.1921e43) 
+////////////////
+ACCRETION RATE: (last slide from rosetta pdf)
+Ledd = 1.26 e38 * Mass_3c33/M_solar ; mass_3c33 = 4e8 M_solar
+Ledd = 5.292 e 46
+Lx/Ledd = 8.9135e+43/5.292 e 46 = 0.00168
 
