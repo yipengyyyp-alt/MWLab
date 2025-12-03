@@ -121,3 +121,9 @@ so the luminosity uncertainity is:
 lower limit = 8.9135e+43 - 1.7214e+43 = 7.1921e43
 higher limit =  1.3285e+44 - 8.9135e+43 = 4.3715e43
 L = 8.9135e+43 (+4.3715e43, - 7.1921e43) 
+////////////////
+ACCRETION RATE: (last slide from rosetta pdf)
+Ledd = 1.26 e38 * Mass_3c33/M_solar ; mass_3c33 = 4e8 M_solar
+Ledd = 5.292 e 46
+Lx/Ledd = 8.9135e+43/5.292 e 46 = 0.00168
+
