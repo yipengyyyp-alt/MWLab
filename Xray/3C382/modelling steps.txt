@@ -1,5 +1,70 @@
-we have flares so we excluded all counts above 0.07 count/sec.
+we have flares so we excluded all counts above 0.15 count/sec.
 
 the change probability Q = 0.9202 ==> https://www.fourmilab.ch/rpkp/experiments/analysis/chiCalc.html 
 
 hence the sourec is variable at 1-0.9202 =0.0798 = 7% so our data shows that the source is statistically not variable 
+
+
+  HARD PART 4-10 KEV
+
+FIRST: galactivce Nh + power law:
+min chi 787.94 for 755 dof
+
+SECOND: ADD INTRINSIC NH:
+min chi 785.50 for 755 dof 
+
+FTEST btw first & second
+ftest 785.50 754 787.94 755
+ F statistic value = 2.34215 and probability 0.126335
+
+WE DELETE THE INTRINSIC NH BECAUSE IT IS NOT STATISTICALLY SIGNIFICANT 
+/////////////////////////////////
+THIRD: add fe line
+ftest btw third and first (because we deleted the NH model): 
+XSPEC12>ftest 772.78 754 787.94 756
+ F statistic value = 7.39579 and probability 0.000659398 ==> statistically required
+
+EQ. WIDTH: :  0.0291823 keV is smaller than NLRG because in the BLRG tthe jets pointing towards us dilute the strength of the line. also since we look at agn face on, it has higher luminosity, THE HIGHER LUMINOSITY also weakens the line. this line is also not relativistic 
+/////////////////////////////////////////////////////
+
+SOFT: 0.5 - 4 KEV
+
+FIRT: POWER LAW
+chi^2 1618.16, dof 1461
+
+err photon index 
+    17      3.93144      4.06099    (-0.0640441,0.0655042)
+err normalization
+    18   0.00177393   0.00189917    (-6.28559e-05,6.23909e-05)
+---
+SECOND: UNKNOWN ABSORPTION LINE @ 0.9 COULD BE OXYGEN-8 OR IRON L-SHELL LINES
+
+chi^2 1563.43 dof 1458
+
+ftest 1563.43 1458 1618 1461
+ F statistic value = 16.9634 and probability 7.83717e-11
+/////
+ERRORS
+error on normalization
+    16 -7.15138e-05 -1.68992e-05    (-2.72969e-05,2.73177e-05)
+error on line energy
+    13     0.923564     0.971954    (-0.0236512,0.0247382)
+error on sigma 
+sigma is too law that the softare considers it zero and doesnt calculate the error so we skip it
+-------------------
+THIRD: oxygen emission @ 0.6 kev
+CHI 1529.12 DOF 1457
+ftest 1529.12 1457 1563.43 1458
+ F statistic value = 32.6918 and probability 1.30804e-08
+error on normalization
+    12  0.000133407  0.000237618    (-5.21057e-05,5.21059e-05)
+
+error on line energy
+     9     0.689236     0.731617    (-0.0191774,0.023204)
+
+error on sigma
+    10    0.0200587    0.0769381    (-0.0273949,0.0294844)
+
+------
+error is written as lower value upper value (lower range, upper range)
+so best fit + lower range gives us lower value, best fit + upper range give us upper value 
