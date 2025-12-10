@@ -108,6 +108,8 @@ Model Luminosity 1.7214e+43 ergs/s  (0.30000 - 10.000 keV rest frame)
      (z = 0.0610 H0 =  70.0 q0 =  0.00 Lambda0 = 0.730)
 
 - we change value for normalization to be the largest range (new 9 0.00194287) and we do lumin 0.3 10 0.061
+(We use normalisation of the hard part because it represents the continuum directly produced by the agn (eg thermal comptonization), 
+and the soft part in this galaxy is considered the scattered from the torus)
 lumin 0.3 10 0.061
 Warning: Either variance is not available through 
          valid fit or chains, or no models are currently 
