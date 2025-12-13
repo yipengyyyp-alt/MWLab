@@ -104,10 +104,12 @@ lumin 0.3 10 0.061
 Warning: Either variance is not available through 
          valid fit or chains, or no models are currently 
          active. lumin error will not be calculated.
-Model Luminosity 1.7214e+43 ergs/s  (0.30000 - 10.000 keV rest frame)
+Model Luminosity 1.7214e+43 ergs/s  (0.30000 - 10.000 keV rest frame) ==> (matches literature : chandra paper)
      (z = 0.0610 H0 =  70.0 q0 =  0.00 Lambda0 = 0.730)
 
 - we change value for normalization to be the largest range (new 9 0.00194287) and we do lumin 0.3 10 0.061
+(We use normalisation of the hard part because it represents the continuum directly produced by the agn (eg thermal comptonization), 
+and the soft part in this galaxy is considered the scattered from the torus)
 lumin 0.3 10 0.061
 Warning: Either variance is not available through 
          valid fit or chains, or no models are currently 
@@ -124,6 +126,6 @@ L = 8.9135e+43 (+4.3715e43, - 7.1921e43)
 ////////////////
 ACCRETION RATE: (last slide from rosetta pdf)
 Ledd = 1.26 e38 * Mass_3c33/M_solar ; mass_3c33 = 4e8 M_solar
-Ledd = 5.292 e 46
+Ledd = 5.292 e 46 (matches literature : chandra paper)
 Lx/Ledd = 8.9135e+43/5.292 e 46 = 0.00168
 

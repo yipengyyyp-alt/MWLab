@@ -1,3 +1,6 @@
+3c382 : small window mode, we have 1 ccd cuz target is so luminose so small window is better. bigger window would causes pile up. 
+in 3c33, we have more than one ccd because the first observation had a lot of soft protons.
+////
 we have flares so we excluded all counts above 0.15 count/sec.
 
 the change probability Q = 0.9202 ==> https://www.fourmilab.ch/rpkp/experiments/analysis/chiCalc.html 
@@ -17,6 +20,14 @@ FTEST btw first & second
 ftest 785.50 754 787.94 755
  F statistic value = 2.34215 and probability 0.126335
 
+error on power law index
+Parameter   Confidence Range (2.706)
+     6      1.87392      1.88326    (-0.00465941,0.00467928)
+
+error on normalization of power law
+Parameter   Confidence Range (2.706)
+     7    0.0120077     0.012092    (-4.21483e-05,4.21356e-05)
+
 WE DELETE THE INTRINSIC NH BECAUSE IT IS NOT STATISTICALLY SIGNIFICANT 
 /////////////////////////////////
 THIRD: add fe line
@@ -24,6 +35,15 @@ ftest btw third and first (because we deleted the NH model):
 XSPEC12>ftest 772.78 754 787.94 756
  F statistic value = 7.39579 and probability 0.000659398 ==> statistically required
 
+error on line energy
+Parameter   Confidence Range (2.706)
+     2      6.18863      6.45311    (-0.165923,0.0985561)
+
+error on sigma of line
+Parameter   Confidence Range (2.706)
+***Warning: Parameter pegged at hard limit: 0
+     3            0     0.290062    (-0.0940179,0.196044)
+//
 EQ. WIDTH: :  0.0291823 keV is smaller than NLRG because in the BLRG tthe jets pointing towards us dilute the strength of the line. also since we look at agn face on, it has higher luminosity, THE HIGHER LUMINOSITY also weakens the line. this line is also not relativistic 
 /////////////////////////////////////////////////////
 
@@ -37,7 +57,7 @@ err photon index
 err normalization
     18   0.00177393   0.00189917    (-6.28559e-05,6.23909e-05)
 ---
-SECOND: UNKNOWN ABSORPTION LINE @ 0.9 COULD BE OXYGEN-8 OR IRON L-SHELL LINES
+SECOND: UNKNOWN ABSORPTION LINE @ 0.9 ==> Fe XX from: http://www.atomdb.org/Webguide/wavelength_region.php?wvl=0.942&wvlunit=kev&wvr=0.01&ems=1.e-18&teunit=K 
 
 chi^2 1563.43 dof 1458
 
@@ -51,8 +71,11 @@ error on line energy
     13     0.923564     0.971954    (-0.0236512,0.0247382)
 error on sigma 
 sigma is too law that the softare considers it zero and doesnt calculate the error so we skip it
+
+EQW:   absolute of (-0.00241617) keV
 -------------------
-THIRD: oxygen emission @ 0.6 kev
+THIRD: emission @ 0.6 kev (Fe XIX from http://www.atomdb.org/Webguide/wavelength_region.php?wvl=0.7311&wvlunit=kev&wvr=0.001&ems=1.e-18&teunit=K ) EMISSION REASON: from the NLR
+
 CHI 1529.12 DOF 1457
 ftest 1529.12 1457 1563.43 1458
  F statistic value = 32.6918 and probability 1.30804e-08
@@ -64,7 +87,51 @@ error on line energy
 
 error on sigma
     10    0.0200587    0.0769381    (-0.0273949,0.0294844)
-
+//
+EQW 0.00547594 keV
 ------
 error is written as lower value upper value (lower range, upper range)
 so best fit + lower range gives us lower value, best fit + upper range give us upper value 
+
+////
+FLUXE
+ Model Flux  0.023169 photons (6.4089e-11 ergs/cm^2/s) range (0.50000 - 10.000 keV)
+FLUX ERROR
+Model Flux  0.023169 photons (6.4089e-11 ergs/cm^2/s) range (0.50000 - 10.000 keV)
+     Error range   0.02312 - 0.02321    (6.383e-11 - 6.431e-11)  (90.00% confidence)
+
+LUM
+lum 0.5 10 0.055
+Warning: Either variance is not available through 
+         valid fit or chains, or no models are currently 
+         active. lumin error will not be calculated.
+Model Luminosity 5.0841e+44 ergs/s  (0.50000 - 10.000 keV rest frame)
+     (z = 0.0550 H0 =  70.0 q0 =  0.00 Lambda0 = 0.730)
+
+LUM ERROR (we vary the normalization of the hard part): we put newpar 7 = 0.0120077
+LOWEST VALUE
+arning: Either variance is not available through 
+         valid fit or chains, or no models are currently 
+         active. lumin error will not be calculated.
+Model Luminosity 5.0680e+44 ergs/s  (0.50000 - 10.000 keV rest frame)
+     (z = 0.0550 H0 =  70.0 q0 =  0.00 Lambda0 = 0.730)
+
+LUM ERROR (we vary the normalization of the hard part): we put newpar 7 = 0.012092
+HIGHER VALUE
+ lum 0.5 10 0.055
+Warning: Either variance is not available through 
+         valid fit or chains, or no models are currently 
+         active. lumin error will not be calculated.
+Model Luminosity 5.1002e+44 ergs/s  (0.50000 - 10.000 keV rest frame)
+     (z = 0.0550 H0 =  70.0 q0 =  0.00 Lambda0 = 0.730)
+///
+ACCRETION RATE: (last slide from rosetta pdf)
+Ledd = 1.26 e38 * Mass_3c382/M_solar ; mass_3c382 = 1.1e9 M_solar
+Ledd =1.386e+47 erg/s
+Lx/Ledd =5.0841e+44 /1.386e+47= 0.00366
+/////
+we compute it a different way to be able to compare with literature:
+M_acc = Lbol/Ledd
+Bolometric Correction = 30 from this paper: http://ui.adsabs.harvard.edu/abs/1994ApJS...95....1E/abstract 
+Lbol = Lx * 30 = 5.0841e+44 * 30
+M_acc = 5.0841e+44 * 30 / 1.386e+47 = 0.11004545454545456 = -0.9 in log scale (literature -1.6 in log)

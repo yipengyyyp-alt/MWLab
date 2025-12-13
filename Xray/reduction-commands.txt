@@ -1,0 +1,86 @@
+1) CHECK FOR THE PRESENCE OF SOFT PROTONS FLARES
+
+ -> Extraction of total light curve at energies > 10 keV
+
+evselect table=pn.evt energycolumn=PI expression='#XMMEA_EP && (PI>10000&&PI<12000) && (PATTERN==0)' withrateset=yes rateset="lcurve_sup10.lc" timebinsize=100 maketimecolumn=yes makeratecolumn=yes 
+
+-> Selection of the Good Time Intervals (GTI)
+
+tabgtigen table=lcurve_sup10.lc gtiset=good_bkg.gti expression='RATE<0.15'
+
+-> Generation of a cleaned event list file 
+
+evselect table=pn.evt expression='#XMMEA_EP && (PI > 150) && (GTI(good_bkg.gti,TIME))' withfilteredset=yes keepfilteroutput=yes filteredset=pn_new.evt updateexposure=yes cleandss=yes writedss=yes
+
+
+2) SOURCE & BACKGROUND REGIONS SELECTION
+
+ds9 pn_new.evt & 
+
+Save source and background regions
+
+
+3) CHECK FOR THE PRESENCE OF PILE-UP 
+
+evselect table=pn_new.evt withfilteredset=yes filteredset=pnf.evt keepfilteroutput=yes expression="((X,Y) IN circle(23826.629,24935.213,700.00007))"
+
+epatplot set=pnf.evt device="/CPS" plotfile="pnf_pat.ps"
+
+gv pnf_pat.ps
+
+
+4) SPECTRUM EXTRACTION
+
+-> Source spectrum
+
+evselect table=pn_new.evt withspectrumset=yes spectrumset=source_spectrum.fits energycolumn=PI spectralbinsize=5 withspecranges=yes specchannelmin=0 specchannelmax=20479 expression='(FLAG==0) && (PATTERN<=4) && ((X,Y) IN circle (23826.629,24935.213,700.00007))'
+
+-> Background spectrum
+
+evselect table=pn_new.evt withspectrumset=yes spectrumset=back_spectrum.fits energycolumn=PI spectralbinsize=5 withspecranges=yes specchannelmin=0 specchannelmax=20479 expression='(FLAG==0) && (PATTERN<=4) && ((X,Y) IN circle (24105.264,29071.873,700.00007))'
+
+
+5) CALCULATE THE AREA OF THE SOURCE AND BACKGROUND REGIONS
+
+backscale spectrumset=source_spectrum.fits badpixlocation=pn_new.evt
+
+backscale spectrumset=back_spectrum.fits badpixlocation=pn_new.evt
+
+
+6) GENERATE THE REDISTRIBUTION MATRIX FILE (RMF)
+
+rmfgen spectrumset=source_spectrum.fits rmfset=pn.rmf
+
+
+7) GENERATE THE ANCILLARY FILE
+
+arfgen spectrumset=source_spectrum.fits arfset=pn.arf withrmfset=yes rmfset=pn.rmf badpixlocation=pn_new.evt detmaptype=psf
+
+ 
+8) GROUPING OF THE SPECTRUM (almost ready for the XSPEC analysis…)
+
+grppha source_spectrum.fits source_spectrum.grp comm= "chkey RESPFILE pn.rmf & chkey ANCRFILE pn.arf & chkey BACKFILE back_spectrum.fits & group min 25 & exit"
+
+
+9) EXTRACTION OF THE SOURCE(+BACKGROUND) LIGHTCURVE
+
+evselect table=pn_new.evt energycolumn=PI expression='#XMMEA_EP&&(PATTERN<=4)&& ((X,Y) IN circle(23826.629,24935.213,700.00007)&&
+(PI in [2000:10000]))' withrateset=yes rateset="PN_source_lightcurve_raw.lc" timebinsize=100 maketimecolumn=yes makeratecolumn=yes
+
+
+10) EXTRACTION OF THE BACKGROUND LIGHTCURVE
+
+evselect table=pn_new.evt energycolumn=PI expression='#XMMEA_EP&&(PATTERN<=4)&& ((X,Y) IN circle(24105.264,29071.873,700.00007)&&
+(PI in [2000:10000]))' withrateset=yes rateset="PN_light_curve_background_raw.lc" timebinsize=100 maketimecolumn=yes makeratecolumn=yes
+
+
+11) CREATION OF THE SOURCE LIGHTCURVE CORRECTED FOR THE BACKGROUND
+
+epiclccorr srctslist=PN_source_lightcurve_raw.lc eventlist=pn_new.evt outset=PN_lccorr.lc bkgtslist=PN_background_lightcurve_raw.lc withbkgset=yes applyabsolutecorrections=yes
+
+
+
+pha*po_soft+pha*zpha*(po_hard+zga))
+Soft is scattered power low and arrives with different flux aka diff normalization
+Phindex 1 * phoindex 2 
+Fe line is affected by both galactic and intrinsic absorption 
