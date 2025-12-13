@@ -74,7 +74,7 @@ sigma is too law that the softare considers it zero and doesnt calculate the err
 
 EQW:   absolute of (-0.00241617) keV
 -------------------
-THIRD: emission @ 0.6 kev (Fe XIX from http://www.atomdb.org/Webguide/wavelength_region.php?wvl=0.7311&wvlunit=kev&wvr=0.001&ems=1.e-18&teunit=K )
+THIRD: emission @ 0.6 kev (Fe XIX from http://www.atomdb.org/Webguide/wavelength_region.php?wvl=0.7311&wvlunit=kev&wvr=0.001&ems=1.e-18&teunit=K ) EMISSION REASON: from the NLR
 
 CHI 1529.12 DOF 1457
 ftest 1529.12 1457 1563.43 1458
