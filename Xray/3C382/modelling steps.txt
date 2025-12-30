@@ -44,7 +44,7 @@ Parameter   Confidence Range (2.706)
 ***Warning: Parameter pegged at hard limit: 0
      3            0     0.290062    (-0.0940179,0.196044)
 //
-EQ. WIDTH: :  0.0291823 keV is smaller than NLRG because in the BLRG tthe jets pointing towards us dilute the strength of the line. also since we look at agn face on, it has higher luminosity, THE HIGHER LUMINOSITY also weakens the line. this line is also not relativistic 
+EQ. WIDTH: :  0.0300805 keV is smaller than NLRG because in the BLRG tthe jets pointing towards us dilute the strength of the line. also since we look at agn face on, it has higher luminosity, THE HIGHER LUMINOSITY also weakens the line. this line is also not relativistic 
 error range: 0.0295234 - 0.0305143 keV
 /////////////////////////////////////////////////////
 
