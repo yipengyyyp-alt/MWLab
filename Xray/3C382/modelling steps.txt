@@ -45,6 +45,7 @@ Parameter   Confidence Range (2.706)
      3            0     0.290062    (-0.0940179,0.196044)
 //
 EQ. WIDTH: :  0.0291823 keV is smaller than NLRG because in the BLRG tthe jets pointing towards us dilute the strength of the line. also since we look at agn face on, it has higher luminosity, THE HIGHER LUMINOSITY also weakens the line. this line is also not relativistic 
+error range: 0.0295234 - 0.0305143 keV
 /////////////////////////////////////////////////////
 
 SOFT: 0.5 - 4 KEV
@@ -89,7 +90,7 @@ error on sigma
     10    0.0200587    0.0769381    (-0.0273949,0.0294844)
 //
 EQW 0.00547594 keV
-error range: 0.0295234 - 0.0305143 keV
+
 ------
 error is written as lower value upper value (lower range, upper range)
 so best fit + lower range gives us lower value, best fit + upper range give us upper value 
