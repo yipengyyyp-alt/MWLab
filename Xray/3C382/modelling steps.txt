@@ -89,6 +89,7 @@ error on sigma
     10    0.0200587    0.0769381    (-0.0273949,0.0294844)
 //
 EQW 0.00547594 keV
+error range: 0.0295234 - 0.0305143 keV
 ------
 error is written as lower value upper value (lower range, upper range)
 so best fit + lower range gives us lower value, best fit + upper range give us upper value 
